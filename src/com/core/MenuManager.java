@@ -17,7 +17,7 @@ public class MenuManager {
 	ImageLoader loader;
 	Input input;
 	TimerClock timer;
-	int largura = Game.widht * Game.scale;
+	int largura = Game.width * Game.scale;
 	int altura = Game.height * Game.scale;
 
 	AudioPlayer music;
@@ -118,7 +118,7 @@ public class MenuManager {
 						limitadorClick=false;
 						break;
 					case 3:
-						player.updateLife(1);
+						player.maxLife++;
 						player.pontos--;
 						limitadorClick=false;
 						break;
@@ -182,7 +182,7 @@ public class MenuManager {
 		font.render(g);
 		font.setText("Defesa ( " + player.getDefense() + " )", posX * 2, posY * 4);
 		font.render(g);
-		font.setText("Vida ( " + player.getLife() + " )", posX * 2, posY * 5);
+		font.setText("Vida ( " + player.getMaxLife() + " )", posX * 2, posY * 5);
 		font.render(g);
 		font.setText("Dano Crítico ( " + player.getCriticalPower() + " )", posX * 2, posY * 6);
 		font.render(g);

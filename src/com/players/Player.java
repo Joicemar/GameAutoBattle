@@ -17,7 +17,7 @@ import com.core.Sprite;
 import com.core.TimerClock;
 import com.text.Ui;
 
-public class Player extends Entity {
+public final class Player extends Entity {
 
 	public static ImageLoader loadLeft, loadRight, loadRunRight, loadRunLeft, loadAttackRight, loadAttackLeft;
 
@@ -314,8 +314,8 @@ public class Player extends Entity {
 		this.criticalRate = criticalRate;
 	}
 
-	public void updateLife(int life) {
-		this.life += life;
+	public void updateMaxLife(int num) {
+		this.maxLife += num;
 	}
 	public void updatPontos(int value) {
 		pontos+=value;

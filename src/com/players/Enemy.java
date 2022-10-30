@@ -90,7 +90,7 @@ public class Enemy extends Entity {
 	boolean local = false;
 	public boolean posVerification() {
 		// checking position
-		if( this.getPosX() >= Game.widht*Game.scale -10 || this.getPosX() <= 10 || this.getPosY() >= Game.height*Game.scale ||
+		if( this.getPosX() >= Game.width*Game.scale -10 || this.getPosX() <= 10 || this.getPosY() >= Game.height*Game.scale ||
 				this.getPosY() <= 10 ) {
 			local = true;
 		}

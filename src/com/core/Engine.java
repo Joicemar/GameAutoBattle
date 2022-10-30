@@ -18,7 +18,8 @@ import javax.swing.JFrame;
  * @author Joicemar da Silva Morais
  * 18/09/2022 
  */
-public class Engine extends Canvas implements Runnable, KeyListener, MouseListener, MouseMotionListener {
+public class Engine extends Canvas implements Runnable, KeyListener, MouseListener, 
+	MouseMotionListener {
 
 	
 	private static final long serialVersionUID = 1L;
@@ -141,10 +142,13 @@ public class Engine extends Canvas implements Runnable, KeyListener, MouseListen
 
 	}
 
+	/*  Faz com que esse segmento inicie e execute a máquina virtual Java, que chama o
+	 *  método run deste encadeamento (desta classe).  
+	 * */
 	public synchronized void start() {
-		/*** Faz com que esse segmento inicie a execu��o; a m�quina virtual Java chama o
-		 * m�todo run deste encadeamento (desta classe).  */
-		thread = new Thread(this); // A thead verifica se extendemos a classe Runnable. ela "ca�a" o m�todo run.
+	/* A thread verifica no (this) se extendemos a classe Runnable.
+	 * Então ela invoca o método run. */
+		thread = new Thread(this); 
 		isRunning = true;
 		thread.start();
 
@@ -196,7 +200,6 @@ public class Engine extends Canvas implements Runnable, KeyListener, MouseListen
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-
 		//////////////////////////////////
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			Input.RIGHT = true;
@@ -233,6 +236,10 @@ public class Engine extends Canvas implements Runnable, KeyListener, MouseListen
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			Input.ENTER = true;
+		}
+		
+		if (e.getKeyCode() == KeyEvent.VK_L) {
+			Input.L = true;
 		}
 		
 	}
@@ -276,7 +283,9 @@ public class Engine extends Canvas implements Runnable, KeyListener, MouseListen
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			Input.ENTER = false;
 		}
-		
+		if (e.getKeyCode() == KeyEvent.VK_L) {
+			Input.L = false;
+		}
 
 	}
 	@Override

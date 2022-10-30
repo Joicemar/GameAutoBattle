@@ -45,7 +45,10 @@ public class TextFont {
 		    //register the font
 		    ge.registerFont(customFont);
 		    font = customFont;
-		} catch (IOException | FontFormatException e) {	}
+		} catch (IOException | FontFormatException e) {
+			System.out.println("Arquivo ttf não encontrado ou inválido.");
+			e.printStackTrace();
+		}
 	}
 
 	public void setText(String txt, int posX, int posY) {

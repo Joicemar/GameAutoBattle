@@ -10,7 +10,7 @@ import com.players.Player;
 
 public class Ui {
 
-	public static Player player;
+	public Player player;
 	Enemy enemy;
 	Game game;
 	TextFont font;
@@ -56,11 +56,10 @@ public class Ui {
 		g.setColor(Color.white);
 		g.setFont(font.getFont());//1,30
 		g.drawString(player.getLife() + " / " + player.getMaxLife(), 144 - descontoPosLife(), 53);
-
 	}
 	
 	private int descontoPosLife() {
-		//desconto para a posição da vida na tela ficar centralizada quando o HP for alterado
+		/*desconto para a posição da vida na tela ficar centralizada quando o HP for alterado*/
 		if(player.getLife() < 100 ) return 5;
 		else if(player.getLife() < 1000) return 25;
 		else if(player.getLife() < 10000) return 35;

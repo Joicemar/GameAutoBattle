@@ -30,8 +30,7 @@ public class Menu {
 		font.readFontPath("Garamond.ttf");
 		font.setColor(Color.white);
 		loader = new ImageLoader();
-		loader.loadImage("ui/papelVelho", 0, 0, Game.widht * Game.scale, Game.height * Game.scale);
-		fundoMenu = loader.getImage();
+		fundoMenu = loader.loadImage("tabelaGrande");
 		timer = new TimerClock();
 
 		loader.loadImage("gui01+");
@@ -54,16 +53,25 @@ public class Menu {
 
 	int options = 1, frames = 0, maxFrames = 5;
 	boolean limitador = false;
-
+	private boolean musicStoped=false;
+	
 	public void update() {
-		if(! music.isRunning()) {
-			music.play();
+		
+		if(Input.L) {
+			if(music.isRunning()){
+				music.stop();
+			}else {
+				music.play();
+			}
+		}
+		if(! music.isRunning() && musicStoped == false )  {
+			music.play(); musicStoped = true;
 		}
 		frames++;
 		if (frames >= maxFrames) {
 			limitador = false;
 		}
-		if(!limitador) {
+		if(!limitador ) {
 			
 			if (input.S || input.DOWN) {
 				options++;
@@ -123,7 +131,7 @@ public class Menu {
 
 	public void render(Graphics g) {
 
-		g.drawImage(fundoMenu, -12, -10, Game.widht * Game.scale + 10, Game.height * Game.scale - 22, null);
+		g.drawImage(fundoMenu, -12, -10, Game.width * Game.scale + 10, Game.height * Game.scale - 22, null);
 		g.drawImage(gui[0], posX, posY, width, height, null);
 		g.drawImage(gui[1], posX, posY * 4, width, height, null);
 		g.drawImage(gui[2], posX, posY * 7, width, height, null);

@@ -21,7 +21,7 @@ public class Game {
 
 	private TimerClock timer;
 	public static int velocidade = 2;
-	public static int widht = 200;
+	public static int width = 200;
 	public static int height = 114;
 	public static int scale = 5;
 
@@ -32,7 +32,7 @@ public class Game {
 
 	public static void main(String[] args) {
 
-		Engine engine = new Engine("Game 01", widht * scale, height * scale);
+		Engine engine = new Engine("Game 01", width * scale, height * scale);
 		engine.start();
 	}
 
@@ -66,15 +66,15 @@ public class Game {
 		enemy = new Enemy();
 		e1 = new Enemy();
 		e1.setPosY(bloco1);
-		e1.setPosX(widht * scale);
+		e1.setPosX(width * scale);
 		e1.setID("01");
 		e2 = new Enemy();
 		e2.setPosY(bloco2);
-		e2.setPosX(widht * scale);
+		e2.setPosX(width * scale);
 		e2.setID("02");
 		e3 = new Enemy();
 		e3.setPosY(bloco3);
-		e3.setPosX(widht * scale);
+		e3.setPosX(width * scale);
 		e3.setID("03");
 
 		enemies = new ArrayList<Enemy>();
@@ -137,7 +137,7 @@ public class Game {
 	}
 
 	int numEnemies = 0;
-	public static int numEvent = 0;
+	public static int numEvent = 4;
 
 	public void update() {
 

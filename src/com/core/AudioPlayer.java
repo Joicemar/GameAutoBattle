@@ -12,10 +12,10 @@ public class AudioPlayer {
 	private float volume = 0.3f; //mim 0.1 max 1.0
 //	private boolean songMute, effectMute;
 
-	public static String clickSound = ".//audio//PLEEG.wav";
+	public static String musicSound = ".//audio//PLEEG.wav";
 	public static String attackSong = ".//audio//attack3.wav";
 	public static String attackSong2 = ".//audio//attack2.wav";
-	public static String battleMusic = ".//audio//TheLoomingBattle.wav";
+	public static String battleMusic = ".//audio//PLEEG.wav";
 	public static String audioDamage = ".//audio//impact.6.wav";
 
 	public Clip clip;
@@ -65,6 +65,18 @@ public class AudioPlayer {
 	
 	public boolean isRunning() {
 		return clip.isRunning();
+	}
+	public void waiting() {
+		try {
+			clip.wait();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	public void start() {
+		if( ! clip.isActive()) {
+			clip.start();
+		}
 	}
 	
 	public void setVolume(float volume) {

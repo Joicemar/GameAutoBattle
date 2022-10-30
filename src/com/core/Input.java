@@ -53,12 +53,14 @@ public class Input {
 	
 	public static boolean MousePressed;
 	
+	public static boolean PRESSED;
 	public static boolean ENTER;
 	public static boolean ESCAPE;
 	public static boolean W;
 	public static boolean A;
 	public static boolean S;
 	public static boolean D;
+	public static boolean L;
 	public static boolean SPACE;
 	public static boolean RIGHT;
 	public static boolean LEFT;
