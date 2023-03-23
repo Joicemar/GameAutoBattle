@@ -29,7 +29,6 @@ public class Sprite {
 				frames = 0;
 				index++;
 				if (index == sprites.size()) {
-
 					index = 0;
 				}
 			}

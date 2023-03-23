@@ -27,7 +27,7 @@ public class Game {
 
 	public boolean timeDamage = true;
 	public Enemy enemy;
-	private Menu menu = new Menu();
+	private MenuBackground menu = new MenuBackground();
 	private MenuManager manager;
 
 	public static void main(String[] args) {
@@ -110,7 +110,7 @@ public class Game {
 	private void verificaEstados() {
 		for (int i = 0; i < enemies.size(); i++) {
 			if (enemies.get(i).getLife() <= 0) {
-				System.out.println( "life"+enemies.get(i).getLife());
+
 				timer.contarSegundos(1);
 				if (timer.getSegundos() == 1) {
 					enemies.remove(enemies.get(i));

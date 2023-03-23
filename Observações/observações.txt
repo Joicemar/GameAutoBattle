@@ -1,0 +1,19 @@
+
+1 - Na classe Player na hora de iniciar os sprites, a cada nova imagem a ser aberta pelo método, 
+criar acima da Variavel que armazena as imagens, senão o novo objeto de Sprite irá sobrepor 
+por outra imagem caso seja iniciada novamente. 
+
+2 - Na parte do ataque do player, tive que fazer verificações da classe Sprite para garantir que
+a animação comece do indice 0 e termine no indice final, depois setando direto o valor do indice
+devolta a 0 na classe Sprite, e no final garantindo que a quantia de frames da última animação
+seja no número maximo ou adequado de frames, antes de encerrar e resetar esse estágio de animação.
+
+3 - O método validCheck está funcionando se usado direto na classe do player, antes estava na classe Game 
+ e a verificação estava sendo feito atrasada, o som estava tocando só depois do próximo ciclo do loop.O que escrevi 
+ Acabei mudando o código, simplifiquei o código e foi o jeito mais eficiente, apenas quis saber
+ se a area do jogador estava na area de ataque e pronto, resolvido, dai abaixo adicionei verificação do lado
+ que o jogador está virado e de tivesse virado para o inimigo o método está resolvido, retornei true;
+ 
+ 4 - no metodo de checar ataque, sempre precisa fazer o calculo da distancia do jogador e inimigo com os 
+ numeros possitivos, tentei fazer com os negativos dentro dos if e não dá certo. Entao existem 2 variaveis
+ com o calculos de subtraçao dos Y.

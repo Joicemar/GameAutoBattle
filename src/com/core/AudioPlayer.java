@@ -9,13 +9,13 @@ import javax.sound.sampled.FloatControl;
 
 public class AudioPlayer {
 
-	private float volume = 0.3f; //mim 0.1 max 1.0
+	private float volume = 0.3f; // mim 0.1 max 1.0
 //	private boolean songMute, effectMute;
 
 	public static String musicSound = ".//audio//PLEEG.wav";
 	public static String attackSong = ".//audio//attack3.wav";
 	public static String attackSong2 = ".//audio//attack2.wav";
-	public static String battleMusic = ".//audio//PLEEG.wav";
+	public static String battleMusic = ".//audio//BlueBoy.wav";
 	public static String audioDamage = ".//audio//impact.6.wav";
 
 	public Clip clip;
@@ -23,7 +23,7 @@ public class AudioPlayer {
 	Clip atack;
 	Clip music;
 	Clip levelUp;
-	
+
 	public AudioPlayer() {
 
 //		setFile(battleMusic);
@@ -42,30 +42,43 @@ public class AudioPlayer {
 		}
 
 	}
-	
-	public Clip getFile() { return clip; }
+
+	public Clip getFile() {
+		return clip;
+	}
 
 	public void play() {
-		
+
 //		new AudioPlayer().setFile();
 		clip.setFramePosition(0);
-		clip.start();
-		
+		try {
+			new Thread() {
+				public void run() {
+					clip.start();
+				}
+			}.start();
+			} catch (Throwable localThrowable) {
+		}
 	}
-	
-	public void play( String soundFileName ) {
+
+	public void setFramePosition(int position) {
+		this.clip.setFramePosition(position);
+	}
+
+	public void play(String soundFileName) {
 		setFile(soundFileName);
 		clip.setFramePosition(0);
 		clip.start();
 	}
-	
+
 	public void stop() {
 		clip.stop();
 	}
-	
+
 	public boolean isRunning() {
 		return clip.isRunning();
 	}
+
 	public void waiting() {
 		try {
 			clip.wait();
@@ -73,34 +86,18 @@ public class AudioPlayer {
 			e.printStackTrace();
 		}
 	}
+
 	public void start() {
-		if( ! clip.isActive()) {
+		if (!clip.isActive()) {
 			clip.start();
 		}
 	}
-	
+
 	public void setVolume(float volume) {
-	    if (volume < 0.0f || volume > 1.0f)
-	        throw new IllegalArgumentException("Volume not valid: " + volume);
-	    FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);        
-	    gainControl.setValue(20f * (float) Math.log10(volume));
+		if (volume < 0.0f || volume > 1.0f)
+			throw new IllegalArgumentException("Volume not valid: " + volume);
+		FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+		gainControl.setValue(20f * (float) Math.log10(volume));
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

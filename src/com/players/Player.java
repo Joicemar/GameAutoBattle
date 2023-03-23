@@ -47,7 +47,7 @@ public final class Player extends Entity {
 
 		maxLife = 10;
 		this.life = maxLife;
-		powerAttack = 25;
+		powerAttack = 2;
 		defense = 0;
 		level = 1;
 		pontos = 0;
